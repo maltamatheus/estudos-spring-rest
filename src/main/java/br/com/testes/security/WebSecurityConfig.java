@@ -17,7 +17,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		System.out.println("Configure AuthenticationManagerBuilder");
 		auth.inMemoryAuthentication()
 			.withUser("matheus")
 			.password(passwordEncoder().encode("malta"))
@@ -30,7 +29,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println("Configure HttpSecurity");
 		http.httpBasic()
 		    .and()
 		    .authorizeHttpRequests()
@@ -47,12 +45,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	@Bean
-	@Override
-	protected AuthenticationManager authenticationManager() throws Exception {
-		System.out.println("Invoca AuthenticationManager");
-		return super.authenticationManager();
-	}
-	
 }
