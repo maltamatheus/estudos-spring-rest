@@ -1,14 +1,13 @@
 package br.com.testes.controllers;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.testes.domains.Palavra;
 
@@ -49,6 +48,12 @@ public class TesteController {
 		}
 		
 		return termos;
+	}
+
+	@GetMapping("/retorna-instant")
+	@ResponseBody
+	public ResponseEntity<Instant> retornaInstant(){
+		return ResponseEntity.ok(Instant.now());
 	}
 	
 }
