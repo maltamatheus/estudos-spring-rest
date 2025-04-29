@@ -14,15 +14,6 @@ public class ListasController {
     public ResponseEntity<List<String>> retornaListaOrdenada(@RequestBody List<String> list){
         List<String> lista = list;
 
-        lista.add("A");
-        lista.add("a");
-        lista.add("Ã");
-        lista.add("ã");
-        lista.add("Á");
-        lista.add("á");
-        lista.add("À");
-        lista.add("à");
-
         Collections.sort(lista);
 
         return ResponseEntity.ok(lista);
