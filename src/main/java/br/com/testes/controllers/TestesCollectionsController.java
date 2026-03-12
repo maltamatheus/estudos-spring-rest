@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/listas")
-public class ListasController {
+@RequestMapping("/collections")
+public class TestesCollectionsController {
 
     @GetMapping("/ordem-alfabetica")
     public ResponseEntity<List<String>> retornaListaOrdenada(@RequestBody List<String> list){
