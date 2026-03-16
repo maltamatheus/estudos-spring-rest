@@ -10,6 +10,7 @@ import java.util.List;
 @RequestMapping("/collections")
 public class TestesCollectionsController {
 
+    @ResponseBody
     @GetMapping("/ordem-alfabetica")
     public ResponseEntity<List<String>> retornaListaOrdenada(@RequestBody List<String> list){
         List<String> lista = list;

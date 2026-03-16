@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/data")
 public class TestesDataController {
-	@GetMapping("/retorna-instant")
 	@ResponseBody
+	@GetMapping("/retorna-instant")
 	public ResponseEntity<Instant> retornaInstant(){
 		return ResponseEntity.ok(Instant.now());
 	}

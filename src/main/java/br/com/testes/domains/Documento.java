@@ -1,22 +1,17 @@
 package br.com.testes.domains;
 
+import br.com.testes.domains.pk.DocumentoPK;
 import br.com.testes.enums.EnumTipoDocumento;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter
-@Setter
-@Embeddable
+@Data
+@Entity
+@Table(name="tab_documentos")
 public class Documento {
-
-    @Enumerated(EnumType.STRING)
-    @Column(name="tipo_documento")
-    private EnumTipoDocumento tipoDocumento;
-
-    @Column(name="num_documento")
-    private String numDocumento;
+    @EmbeddedId
+    private DocumentoPK documento;
 }
