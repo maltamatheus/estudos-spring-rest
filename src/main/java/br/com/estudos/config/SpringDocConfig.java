@@ -1,4 +1,4 @@
-package br.com.testes.config;
+package br.com.estudos.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -14,6 +14,6 @@ public class SpringDocConfig {
                 .info(new Info()
                         .title("Estudos Spring Rest")
                         .version("Versão 1.0.0")
-                        .description("API para estudos e testes"));
+                        .description("API para estudos e estudos"));
     }
 }

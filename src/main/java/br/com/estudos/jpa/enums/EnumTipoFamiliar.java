@@ -1,4 +1,4 @@
-package br.com.testes.enums;
+package br.com.estudos.jpa.enums;
 
 public enum EnumTipoFamiliar {
     TITULAR,

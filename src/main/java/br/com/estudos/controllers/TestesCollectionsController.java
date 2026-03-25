@@ -1,4 +1,4 @@
-package br.com.testes.controllers;
+package br.com.estudos.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
