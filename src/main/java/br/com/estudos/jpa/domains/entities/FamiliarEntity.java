@@ -1,5 +1,6 @@
-package br.com.estudos.jpa.domains;
+package br.com.estudos.jpa.domains.entities;
 
+import br.com.estudos.jpa.domains.DadosPessoais;
 import br.com.estudos.jpa.enums.EnumTipoFamiliar;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -10,7 +11,7 @@ import java.util.UUID;
 @Entity
 @Table(name="tab_familiares",
        uniqueConstraints = {@UniqueConstraint(name="documento_uk",columnNames = {"tipo_documento","numero_documento"})})
-public class Familiar {
+public class FamiliarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
@@ -21,5 +22,5 @@ public class Familiar {
     private DadosPessoais dadosPessoais;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Assinante codigoAssinatura;
+    private AssinanteEntity codigoAssinatura;
 }
