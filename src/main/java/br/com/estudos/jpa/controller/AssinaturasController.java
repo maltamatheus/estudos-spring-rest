@@ -1,5 +1,6 @@
 package br.com.estudos.jpa.controller;
 
+import br.com.estudos.jpa.domains.dto.AssinanteRequestDto;
 import br.com.estudos.jpa.domains.entities.AssinanteEntity;
 import br.com.estudos.jpa.services.AssinaturaService;
 import lombok.AllArgsConstructor;
@@ -14,7 +15,7 @@ public class AssinaturasController {
     private AssinaturaService assinaturaService;
 
     @PostMapping("/novo-assinante")
-    public ResponseEntity<AssinanteEntity> novoAssinante(@RequestBody AssinanteEntity novoAssinanteEntity){
-        return ResponseEntity.ok(assinaturaService.novoAssinante(novoAssinanteEntity));
+    public ResponseEntity<AssinanteEntity> novoAssinante(@RequestBody AssinanteRequestDto novoAssinante){
+        return ResponseEntity.ok(assinaturaService.novoAssinante(novoAssinante));
     }
 }
