@@ -1,7 +1,7 @@
-package br.com.testes.controllers;
+package br.com.estudos.controllers;
 
-import br.com.testes.domains.Pedido;
-import br.com.testes.services.PedidoServices;
+import br.com.estudos.domains.Pedido;
+import br.com.estudos.services.PedidoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

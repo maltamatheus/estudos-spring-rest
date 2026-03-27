@@ -1,7 +1,7 @@
-package br.com.testes.controllers;
+package br.com.estudos.controllers;
 
-import br.com.testes.domains.Cliente;
-import br.com.testes.services.ClienteServices;
+import br.com.estudos.domains.Cliente;
+import br.com.estudos.services.ClienteServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

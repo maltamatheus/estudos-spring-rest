@@ -1,10 +1,9 @@
-package br.com.testes.domains;
+package br.com.estudos.domains;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @Entity

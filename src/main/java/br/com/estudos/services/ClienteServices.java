@@ -1,7 +1,7 @@
-package br.com.testes.services;
+package br.com.estudos.services;
 
-import br.com.testes.domains.Cliente;
-import br.com.testes.repositories.ClienteRepository;
+import br.com.estudos.domains.Cliente;
+import br.com.estudos.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

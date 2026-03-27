@@ -1,4 +1,4 @@
-package br.com.testes.domains;
+package br.com.estudos.domains;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;

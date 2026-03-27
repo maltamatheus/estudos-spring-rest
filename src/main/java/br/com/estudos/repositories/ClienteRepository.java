@@ -1,6 +1,6 @@
-package br.com.testes.repositories;
+package br.com.estudos.repositories;
 
-import br.com.testes.domains.Cliente;
+import br.com.estudos.domains.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
