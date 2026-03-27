@@ -13,14 +13,14 @@ import java.util.UUID;
        uniqueConstraints = {@UniqueConstraint(name="documento_uk",columnNames = {"tipo_documento","numero_documento"})})
 public class FamiliarEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
 
     @Enumerated(EnumType.STRING)
-    private EnumTipoFamiliar tipoFamiliar;
+    private EnumTipoFamiliar familiar;
 
     private DadosPessoais dadosPessoais;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private AssinanteEntity codigoAssinatura;
 }
