@@ -1,6 +1,7 @@
 package br.com.estudos.controllers;
 
 import br.com.estudos.domains.Cliente;
+import br.com.estudos.domains.dto.request.ClienteDto;
 import br.com.estudos.services.ClienteServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class ClienteController {
 
     @ResponseBody
     @PostMapping("/criar-cliente")
-    public ResponseEntity<Cliente> criarCliente(@RequestBody Cliente cliente){
-        return ResponseEntity.ok(clienteServices.criarCliente(cliente));
+    public ResponseEntity<Cliente> criarCliente(@RequestBody ClienteDto dto){
+        return ResponseEntity.ok(clienteServices.criarCliente(dto));
     }
 
     @ResponseBody
