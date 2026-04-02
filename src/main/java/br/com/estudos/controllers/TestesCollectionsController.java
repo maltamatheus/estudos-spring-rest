@@ -1,0 +1,22 @@
+package br.com.estudos.controllers;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
+import java.util.List;
+
+@RestController
+@RequestMapping("/collections")
+public class TestesCollectionsController {
+
+    @ResponseBody
+    @GetMapping("/ordem-alfabetica")
+    public ResponseEntity<List<String>> retornaListaOrdenada(@RequestBody List<String> list){
+        List<String> lista = list;
+
+        Collections.sort(lista);
+
+        return ResponseEntity.ok(lista);
+    }
+}
