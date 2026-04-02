@@ -49,12 +49,12 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == EnumRolesUsuario.ADMIN){
             return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),
-                            new SimpleGrantedAuthority("ROLE_VIEWER"),
-                            new SimpleGrantedAuthority("ROLE_AUDITOR"));
-        } else if(this.role == EnumRolesUsuario.VIEWER){
-            return List.of(new SimpleGrantedAuthority("ROLE_VIEWER"));
+                            new SimpleGrantedAuthority("ROLE_BLACK"),
+                            new SimpleGrantedAuthority("ROLE_GOLD"));
+        } else if(this.role == EnumRolesUsuario.BLACK){
+            return List.of(new SimpleGrantedAuthority("ROLE_BLACK"));
         } else {
-            return List.of(new SimpleGrantedAuthority("ROLE_AUDITOR"));
+            return List.of(new SimpleGrantedAuthority("ROLE_GOLD"));
         }
     }
 

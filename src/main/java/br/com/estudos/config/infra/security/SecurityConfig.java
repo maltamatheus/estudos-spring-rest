@@ -3,6 +3,7 @@ package br.com.estudos.config.infra.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,11 +28,23 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //Não cria HttpSessions
                 .authorizeHttpRequests(authorize ->
                         authorize
-                                .requestMatchers("/swagger-ui/**","/v3/api-docs/**")
-                                .permitAll()
+                                .requestMatchers("/swagger-ui/**","/v3/api-docs/**").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/auth/login","/auth/logout").permitAll()
+//                                .anyRequest().permitAll() // LIBERA TUDO
+//                                .requestMatchers("/auth/novo","/assinaturas/**").hasRole("ADMIN")
+                                .requestMatchers("/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET,"/fornecedores**"
+                                                                        ,"/documentos**"
+                                                                        ,"/avaliacoes**")
+//                                    .hasAuthority("ROLE_VIEWER")
+//                                .requestMatchers(HttpMethod.GET,"/analytics/**")
+//                                    .hasRole("AUDITOR")
+//                                .requestMatchers(HttpMethod.POST,"/auth/refresh")
+//                                    .authenticated()
+                                .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-                .logout((logout) -> logout.logoutSuccessUrl("/auth/logout"))
+//                .logout((logout) -> logout.logoutSuccessUrl("/auth/logout"))
                 .build();
     }
 

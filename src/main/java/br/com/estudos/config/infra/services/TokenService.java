@@ -21,7 +21,7 @@ public class TokenService {
 
     public String generateToken(User user){
         try{
-            log.info("Usando a chave secret: {}",secret);
+            log.info("Matheus - Usando a chave secret: {}",secret);
             Algorithm algorithm =Algorithm.HMAC256(secret);
             String token = JWT.create()
                     .withIssuer("api-m2ra-auth")
@@ -36,7 +36,7 @@ public class TokenService {
 
     public String validateToken(String token){
         try {
-            Algorithm algorithm =Algorithm.HMAC256(secret);
+            Algorithm algorithm = Algorithm.HMAC256(secret);
             return JWT.require(algorithm)
                     .withIssuer("api-m2ra-auth")
                     .build()
@@ -48,8 +48,12 @@ public class TokenService {
     }
 
     private Instant generateExpireInstant(){
+        log.info("-----------------------------------------------------");
+        log.info("Token gerado em: {}", LocalDateTime.now());
+        log.info("Token expira em: {}", LocalDateTime.now().plusHours(2));
+        log.info("-----------------------------------------------------");
         return LocalDateTime.now()
-                .plusSeconds(300)
+                .plusHours(4)
                 .toInstant(ZoneOffset.UTC);
     }
 }
