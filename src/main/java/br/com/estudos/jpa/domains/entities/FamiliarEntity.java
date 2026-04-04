@@ -22,5 +22,6 @@ public class FamiliarEntity {
     private DadosPessoais dadosPessoais;
 
     @ManyToOne
+    @JoinColumn(name="codigo_assinatura")
     private AssinanteEntity codigoAssinatura;
 }

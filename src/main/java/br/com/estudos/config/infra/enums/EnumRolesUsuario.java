@@ -8,9 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @Slf4j
 public enum EnumRolesUsuario {
-    ADMIN("admin"),
-    BLACK("black"),
-    GOLD("gold");
+    ADMIN("ADMIN"),
+    BLACK("BLACK"),
+    GOLD("GOLD");
 
     private String role;
 

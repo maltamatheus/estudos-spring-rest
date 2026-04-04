@@ -13,7 +13,7 @@ public class AssinaturaService {
     private AssinaturaRepository assinaturaRepository;
     private AssinanteMapper assinanteMapper;
 
-    public AssinanteEntity novoAssinante(AssinanteRequestDto assinanteRequestDto){
+    public AssinanteEntity criarAssinante(AssinanteRequestDto assinanteRequestDto){
         AssinanteEntity novoAssinante = assinanteMapper.dtoToEntity(assinanteRequestDto);
         return assinaturaRepository.save(novoAssinante);
     }
