@@ -35,8 +35,8 @@ public class SecurityConfig {
                                 .requestMatchers("/swagger-ui/**","/v3/api-docs/**").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/auth/login","/auth/logout").permitAll()
 //                                .anyRequest().permitAll() // LIBERA TUDO
-                                .requestMatchers("/**").hasRole("ADMIN") // Role Admin pode tudo
                                 .requestMatchers("/promocoes","/promocoes/**").hasAuthority("ROLE_BLACK")
+                                .requestMatchers("/**").hasRole("ADMIN") // Role Admin pode tudo
 //                                .requestMatchers(HttpMethod.GET,"/fornecedores**"
 //                                                                        ,"/documentos**"
 //                                                                        ,"/avaliacoes**")
