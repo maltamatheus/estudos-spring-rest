@@ -1,5 +1,6 @@
 package br.com.estudos.domains;
 
+import br.com.estudos.domains.embeddables.DetalhesContato;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,10 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente")
     Set<Pedido> pedidos;
+
+    @Embedded
+    @CollectionTable(name="tab_telefones_clientes",joinColumns = @JoinColumn(name="id_cliente"))
+    private DetalhesContato contato;
 
     public Cliente(String nome, LocalDate dataNascto) {
         this.nome = nome;
