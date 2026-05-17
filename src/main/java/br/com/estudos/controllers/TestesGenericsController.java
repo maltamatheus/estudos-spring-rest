@@ -1,28 +1,23 @@
 package br.com.estudos.controllers;
 
 import br.com.estudos.domains.Produto;
+import br.com.estudos.domains.ProdutoMapper;
+import br.com.estudos.domains.dto.ProdutoDTO;
 import br.com.estudos.domains.generics.TrabalhandoComGenerics;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/collections")
+@RequestMapping("/generics")
 @AllArgsConstructor
-public class TestesCollectionsController {
+public class TestesGenericsController {
 
-    @ResponseBody
-    @GetMapping("/ordem-alfabetica")
-    public ResponseEntity<List<String>> retornaListaOrdenada(@RequestBody List<String> list){
-        List<String> lista = list;
+    @Autowired
+    private ProdutoMapper produtoMapper;
 
-        Collections.sort(lista);
-
-        return ResponseEntity.ok(lista);
-    }
     @PostMapping("/mistura-de-hoje")
     public String obtemMisturaDeHoje(@RequestBody List<String> misturas){
         return TrabalhandoComGenerics.retornaMistura(misturas);
@@ -30,5 +25,10 @@ public class TestesCollectionsController {
     @PostMapping("/presente-da-lista")
     public Produto obtemPresenteDaLista(@RequestBody List<Produto> estoque){
         return TrabalhandoComGenerics.retornaProduto(estoque);
+    }
+
+    @PostMapping("/obter-produto")
+    public Produto obterProduto(@RequestBody ProdutoDTO dto){
+        return produtoMapper.toProduto(dto);
     }
 }

@@ -9,7 +9,6 @@ public class Fornecedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Embedded
     @CollectionTable(name = "tab_telefones_fornecedores", joinColumns = @JoinColumn(name="id_fornecedor"))
     private DetalhesContato contato;
