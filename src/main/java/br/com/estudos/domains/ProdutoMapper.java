@@ -9,20 +9,20 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {EnumMapper.class})
 public interface ProdutoMapper {
 
-    @Mapping(source = "tipoProduto",target="tipo")
-    @Mapping(source = "tipoDocumento", target="tipoDocto")
+    @Mapping(source = "tipoProduto",target="tipo", qualifiedByName = "stringToEnum")
+    @Mapping(source = "tipoDocumento", target="tipoDocto", qualifiedByName = "integerToEnum")
     Produto toProduto(ProdutoDTO dto);
     List<ProdutoDTO> toListDTO(List<Produto> listaProduto);
     List<Produto> toListProduto(List<ProdutoDTO> dtos);
 
-    default EnumTipoProduto stringToEnum(String valor){
-        return EnumTipoProduto.valueOf(valor.toUpperCase());
-    }
-
-    default EnumTipoDocumento intToString(Integer idTipoDocumento){
-        return EnumTipoDocumento.getById(idTipoDocumento);
-    }
+//    default EnumTipoProduto stringToEnum(String valor){
+//        return EnumTipoProduto.valueOf(valor.toUpperCase());
+//    }
+//
+//    default EnumTipoDocumento intToString(Integer idTipoDocumento){
+//        return EnumTipoDocumento.getById(idTipoDocumento);
+//    }
 }
