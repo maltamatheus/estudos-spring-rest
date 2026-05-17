@@ -15,6 +15,9 @@ public interface ProdutoMapper {
     @Mapping(source = "tipoProduto",target="tipo", qualifiedByName = "stringToEnum")
     @Mapping(source = "tipoDocumento", target="tipoDocto", qualifiedByName = "integerToEnum")
     Produto toProduto(ProdutoDTO dto);
+    @Mapping(source = "tipo",target="tipoProduto", qualifiedByName = "enumToString")
+    @Mapping(source = "tipoDocto", target="tipoDocumento", qualifiedByName = "enumToInteger")
+    ProdutoDTO toProdutoDTO(Produto produto);
     List<ProdutoDTO> toListDTO(List<Produto> listaProduto);
     List<Produto> toListProduto(List<ProdutoDTO> dtos);
 
