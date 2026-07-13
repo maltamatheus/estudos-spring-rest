@@ -10,7 +10,6 @@ import java.util.Set;
 @Data
 public class ClienteDto {
     private String nome;
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascto;
     private Set<Pedido> pedidos;
 }

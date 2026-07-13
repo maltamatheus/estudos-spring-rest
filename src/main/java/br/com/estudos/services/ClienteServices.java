@@ -31,6 +31,6 @@ public class ClienteServices {
     }
 
     private Cliente dtoToEntity(ClienteDto dto){
-        return new Cliente(dto.getNome(),dto.getDataNascto(), dto.getPedidos());
+        return new Cliente(dto.getNome(),dto.getDataNascto());
     }
 }
