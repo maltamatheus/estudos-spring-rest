@@ -1,7 +1,7 @@
 package br.com.estudos.controllers;
 
 import br.com.estudos.domains.Produto;
-import br.com.estudos.domains.ProdutoMapper;
+import br.com.estudos.domains.mappers.ProdutoMapper;
 import br.com.estudos.domains.dto.ProdutoDTO;
 import br.com.estudos.domains.generics.TrabalhandoComGenerics;
 import lombok.AllArgsConstructor;
@@ -29,6 +29,6 @@ public class TestesGenericsController {
 
     @PostMapping("/obter-produto")
     public Produto obterProduto(@RequestBody ProdutoDTO dto){
-        return produtoMapper.toProduto(dto);
+        return produtoMapper.toProduto()
     }
 }

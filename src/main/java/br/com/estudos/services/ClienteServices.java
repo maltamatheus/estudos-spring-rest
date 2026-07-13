@@ -14,6 +14,9 @@ public class ClienteServices {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private ClienteMapper clienteMapper;
+
     public Cliente criarCliente(ClienteDto dto){
         return salvar(dtoToEntity(dto));
     }
@@ -30,7 +33,4 @@ public class ClienteServices {
         return clienteRepository.findById(id);
     }
 
-    private Cliente dtoToEntity(ClienteDto dto){
-        return new Cliente(dto.getNome(),dto.getDataNascto(), dto.getPedidos());
-    }
 }

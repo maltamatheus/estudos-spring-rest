@@ -1,11 +1,11 @@
-package br.com.estudos.domains;
+package br.com.estudos.domains.mappers;
 
 import br.com.estudos.domains.dto.ProdutoDTO;
 import br.com.estudos.domains.enums.EnumTipoProduto;
 import br.com.estudos.domains.generics.enums.EnumTipoDocumento;
-import br.com.estudos.domains.mappers.EnumMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 import java.util.List;
 
@@ -21,11 +21,21 @@ public interface ProdutoMapper {
     List<ProdutoDTO> toListDTO(List<Produto> listaProduto);
     List<Produto> toListProduto(List<ProdutoDTO> dtos);
 
-//    default EnumTipoProduto stringToEnum(String valor){
-//        return EnumTipoProduto.valueOf(valor.toUpperCase());
-//    }
-//
-//    default EnumTipoDocumento intToString(Integer idTipoDocumento){
-//        return EnumTipoDocumento.getById(idTipoDocumento);
-//    }
+    @Named("stringToEnum")
+    default EnumTipoProduto stringToEnum(String valor){
+        return EnumTipoProduto.valueOf(valor.toUpperCase());
+    }
+    @Named("enumToString")
+    default String stringToEnum(EnumTipoProduto enumTipoProduto){
+        return enumTipoProduto == null ? null : enumTipoProduto.toString();
+    }
+
+    @Named("integerToEnum")
+    default EnumTipoDocumento integerToEnum(Integer idTipoDocumento){
+        return EnumTipoDocumento.getById(idTipoDocumento);
+    }
+    @Named("enumToInteger")
+    default Integer enumToInteger(EnumTipoDocumento enumTipoDocumento){
+        return enumTipoDocumento == null ? null : enumTipoDocumento.getId();
+    }
 }

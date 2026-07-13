@@ -9,9 +9,9 @@ import java.util.Set;
 @Data
 @Embeddable
 public class DetalhesContato {
-
-    private String email;
-
     @ElementCollection
     private Set<String> telefones;
+
+    @ElementCollection
+    private Set<String> emails;
 }
