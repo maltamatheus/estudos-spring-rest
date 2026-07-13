@@ -1,15 +1,16 @@
 package br.com.estudos.domains.dto.request;
 
 import br.com.estudos.domains.Pedido;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Data
-public class ClienteDto {
+@AllArgsConstructor
+public class ClienteDTO {
     private String nome;
     private LocalDate dataNascto;
-    private Set<Pedido> pedidos;
+    private List<Pedido> pedidos;
 }

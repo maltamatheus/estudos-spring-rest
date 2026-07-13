@@ -7,8 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,15 +27,5 @@ public class Cliente {
     private LocalDate dataNascto;
 
     @OneToMany(mappedBy = "cliente")
-    Set<Pedido> pedidos;
-
-    public Cliente(String nome, LocalDate dataNascto) {
-        this.nome = nome;
-        this.dataNascto = dataNascto;
-    }
-    public Cliente(String nome, LocalDate dataNascto, Set<Pedido> pedidos) {
-        this.nome = nome;
-        this.dataNascto = dataNascto;
-        this.pedidos = new LinkedHashSet<>(pedidos);
-    }
+    List<Pedido> pedidos;
 }

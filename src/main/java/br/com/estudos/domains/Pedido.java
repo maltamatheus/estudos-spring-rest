@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 @Table(name="tab_pedidos")
@@ -20,5 +22,5 @@ public class Pedido {
     private Cliente cliente;
 
     @Column(name="data_pedido")
-    private LocalDate dtPedido;
+    private LocalDateTime dataPedido;
 }

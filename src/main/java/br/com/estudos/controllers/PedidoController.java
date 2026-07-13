@@ -1,6 +1,7 @@
 package br.com.estudos.controllers;
 
 import br.com.estudos.domains.Pedido;
+import br.com.estudos.domains.dto.request.PedidoDTO;
 import br.com.estudos.services.PedidoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class PedidoController {
 
     @ResponseBody
     @PostMapping("/criar-pedido")
-    public ResponseEntity<Pedido> criarPedido(@RequestBody Pedido pedido){
-        return ResponseEntity.ok(pedidoServices.criarPedido(pedido));
+    public ResponseEntity<Pedido> criarPedido(@RequestBody PedidoDTO pedidoDTO){
+        return ResponseEntity.ok(pedidoServices.criarPedido(pedidoDTO));
     }
 
     @ResponseBody
