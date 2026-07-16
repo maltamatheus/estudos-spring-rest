@@ -19,8 +19,8 @@ public class PedidoController {
 
     @ResponseBody
     @PostMapping("/criar-pedido")
-    public ResponseEntity<Pedido> criarPedido(@RequestBody PedidoDTO pedidoDTO){
-        return ResponseEntity.ok(pedidoServices.criarPedido(pedidoDTO));
+    public ResponseEntity<Pedido> criarPedido(@RequestBody Pedido pedido){
+        return ResponseEntity.ok(pedidoServices.criarPedido(pedido));
     }
 
     @ResponseBody

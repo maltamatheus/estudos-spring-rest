@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +22,9 @@ public class PedidoServices {
 
     private PedidoMapper pedidoMapper;
 
-    public Pedido criarPedido(PedidoDTO dto){
-        return salvar(dto);
+    public Pedido criarPedido(Pedido pedido){
+        Pedido novoPedido = salvar(pedido);
+        return novoPedido;
     }
 
     public List<Pedido> obterTodos() {
@@ -33,11 +35,13 @@ public class PedidoServices {
         return pedidoRepository.findById(id);
     }
 
-    private Pedido salvar(PedidoDTO dto){
-        if(dto.getCliente() == null){
+    private Pedido salvar(Pedido pedido){
+        if(pedido.getCliente() == null){
             throw new RuntimeException("Todo pedido precisa ter um cliente");
         }
 
-        return pedidoRepository.save(pedidoMapper.toEntity(dto));
+        pedido.setDataPedido(LocalDateTime.now());
+
+        return pedidoRepository.save(pedido);
     }
 }

@@ -5,12 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 public class ClienteDTO {
     private String nome;
     private LocalDate dataNascto;
-    private List<Pedido> pedidos;
+    private Set<Pedido> pedidos;
 }

@@ -18,12 +18,14 @@ public class ClienteServices {
     @Autowired
     private ClienteMapper clienteMapper;
 
-    public Cliente criarCliente(ClienteDTO dto){
-        return salvar(dto);
+    public Cliente criarCliente(Cliente cliente){
+        Cliente novoCliente = salvar(cliente);
+//        ClienteDTO clienteDTO = clienteMapper.toDto(novoCliente);
+        return novoCliente;
     }
 
-    private Cliente salvar(ClienteDTO dto){
-        return clienteRepository.save(clienteMapper.toEntity(dto));
+    private Cliente salvar(Cliente cliente){
+        return clienteRepository.save(cliente);
     }
 
     public List<Cliente> obterTodos() {

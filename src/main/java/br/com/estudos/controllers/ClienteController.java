@@ -19,8 +19,8 @@ public class ClienteController {
 
     @ResponseBody
     @PostMapping("/criar-cliente")
-    public ResponseEntity<Cliente> criarCliente(@RequestBody ClienteDTO dto){
-        return ResponseEntity.ok(clienteServices.criarCliente(dto));
+    public ResponseEntity<Cliente> criarCliente(@RequestBody Cliente cliente){
+        return ResponseEntity.ok(clienteServices.criarCliente(cliente));
     }
 
     @ResponseBody

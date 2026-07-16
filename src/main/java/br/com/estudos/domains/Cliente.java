@@ -1,13 +1,11 @@
 package br.com.estudos.domains;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,10 +20,9 @@ public class Cliente {
     private Long id;
     private String nome;
 
-    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     @Column(name = "data_nascto")
     private LocalDate dataNascto;
 
     @OneToMany(mappedBy = "cliente")
-    List<Pedido> pedidos;
+    Set<Pedido> pedidos;
 }
